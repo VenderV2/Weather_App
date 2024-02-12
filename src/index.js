@@ -1,21 +1,26 @@
-import _ from 'lodash';
+import _, { cond } from 'lodash';
 import './style.css';
-import Icon from './icon.png';
+import * as weatherApi from './weatherApiConnection.js';
 
-function component() {
-    const element = document.createElement('div');
-  
- // Lodash, now imported by this script
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-    element.classList.add('hello');
 
-      // Add the image to our existing div.
-  const myIcon = new Image();
-  myIcon.src = Icon;
+// api query url + key
+// https://api.weatherapi.com/v1/current.json?key=3263d79cb70b48c88b7145028242101&q=london
 
-  element.appendChild(myIcon);
 
-    return element;
-  }
-  
-  document.body.appendChild(component());
+
+
+async function showWeather() {
+    const data = await weatherApi.getWeather();
+    function updateOutputWindow(location, condition, temperature) {
+        const outputElement = document.querySelector('.outputBox')
+        outputElement.textContent = 'The Weather in ' + location + ' is ' + condition
+         + ' with a temperature of ' + temperature + ' degrees';
+    }
+    updateOutputWindow(data.location.name, data.current.condition.text, data.current.temp_c)
+}
+
+
+const searchBtn = document.querySelector('.searchBtn')
+searchBtn.addEventListener('click', () => {
+    showWeather()
+})
