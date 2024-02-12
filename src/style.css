@@ -12,20 +12,17 @@ html {
 }
 
 body {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr) repeat(1, 4fr);
-  grid-template-rows: repeat(1, 1fr);
   height: 100%;
   width: 100%;
-  background-color: rgb(235, 235, 235);
+  background-color: var(--primary);
   /* font-family: Roboto; */
   z-index: 0;
   position: absolute;
 }
 
 :root {
-  --primary: #33b1d1;
-  --secondary: #11b9e4;
+  --primary: #5fc9e4;
+  --secondary: #1bbee7;
   --shadow: rgb(173, 173, 173);
 }
 
@@ -77,8 +74,8 @@ body {
 }
 
 .header {
-  background-color: white;
-  box-shadow: 5px 5px 5px rgb(201, 201, 201);
+  background-color: var(--secondary);
+  box-shadow: 5px 5px 5px rgb(64, 179, 207);
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -338,7 +335,6 @@ body {
 .outputBox {
   width: 600px;
   height: 400px;
-  background-color: rgb(219, 247, 212);
   font-weight: 700;
 }
 
