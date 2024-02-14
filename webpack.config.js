@@ -30,4 +30,11 @@ module.exports = {
         inject: 'body',
     }),
 ],
+resolve: {
+  fallback: {
+      "fs": false
+  },
+  
+},
 };
+
