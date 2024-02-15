@@ -26,7 +26,7 @@ async function showWeather(defaultURL) {
         const weatherCondition = document.querySelector('.condition')
         weatherCondition.textContent = condition;
         const weatherTemp = document.querySelector('.temp')
-        weatherTemp.textContent = temperature;
+        weatherTemp.textContent = temperature + '°';
 
         
     }
